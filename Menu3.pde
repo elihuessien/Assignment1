@@ -34,13 +34,19 @@ class Menu3 extends Load
 
   void getdata(int ofset, ArrayList<Integer> dataset)
   {
+<<<<<<< HEAD
     //getting dataset bassed on age ofset
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
     for(i=0; i<12; i++)
     {
       dataset.add(numbers.get((i*3)+ofset));
     }
     
+<<<<<<< HEAD
     //heading
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
     if(ofset == 0)
     {
       age = "Children";
@@ -55,7 +61,11 @@ class Menu3 extends Load
     }
   }
   
+<<<<<<< HEAD
   void bargraph(int ofset)
+=======
+  void graph(int ofset)
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
   {
     fill(0, 204, 255);
     stroke(255);
@@ -73,7 +83,10 @@ class Menu3 extends Load
     
     for(i=0; i<12; i++)
     {
+<<<<<<< HEAD
       //constructing bars
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
       float rectheight = map(dataset.get(i), 0, highestpoint, 0, yrange);
       rect(border+(i*linedist), height-border, linedist, -(rectheight));
     }

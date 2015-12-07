@@ -49,7 +49,10 @@ class Menu1 extends Load
   
   void graph()
   {
+<<<<<<< HEAD
     //set default box size
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
     float size = sqsize1;
     
     fill(0, 204, 255);
@@ -80,7 +83,10 @@ class Menu1 extends Load
       {
         if(mouseY <( y1 + (sqsize1/2))&& mouseY > y1 - (sqsize1/2))
         {
+<<<<<<< HEAD
           //set animated box size
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
           size = sqsize2;
           
           //x line
@@ -95,6 +101,7 @@ class Menu1 extends Load
           fill(255, 0, 0);
           stroke(0, 204, 255);
         } 
+<<<<<<< HEAD
       }/// end box animation if
       else
       {
@@ -110,6 +117,17 @@ class Menu1 extends Load
       if(k < 12)
       {
         //keeps track of the box's x value
+=======
+      }
+      else
+      {
+        fill(0, 204, 255);
+        size = sqsize1;
+      }
+      rect(x1 - (size/2), y1 - (size/2), size, size);
+      if(k < 12)
+      {
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
         box.add(border + (linedist * i) - (size/2));
         k++;
       }
@@ -121,7 +139,10 @@ class Menu1 extends Load
   }
   
   
+<<<<<<< HEAD
   //Drawing the border
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
   void border()
   {
     text("Pool Users Survey", width*.5, 10);

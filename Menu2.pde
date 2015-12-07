@@ -14,7 +14,10 @@ class Menu2 extends Load
     cx = (width/2);
     cy = (height/2);
     radius = (width/2);
+<<<<<<< HEAD
     //initialise random colors
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
     for(i = 0 ; i < 3; i ++)
     {
       colors[i] = color(0, random(0, 255), random(0, 255));
@@ -24,7 +27,10 @@ class Menu2 extends Load
   void initialise(int box, ArrayList<Integer> dataset)
   { 
     sum = 0.0f;
+<<<<<<< HEAD
     //get dataset based on month ofset
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
     for(i=0; i<3; i++)
     {
       dataset.add(numbers.get((box*3)+i));
@@ -48,7 +54,10 @@ class Menu2 extends Load
     float toMouseY = mouseY - radius;  
     float angle = atan2(toMouseY, toMouseX);
     
+<<<<<<< HEAD
     //getting pichart angles
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
     if (angle < 0)
     {
       angle = map(angle, -PI, 0, PI, TWO_PI);
@@ -68,7 +77,10 @@ class Menu2 extends Load
       if (angle > last && angle < current)
       {
         r = radius * 1.5f;
+<<<<<<< HEAD
         //datatype for each slice/arc
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
         data = i % 3;
       }
       
@@ -76,8 +88,12 @@ class Menu2 extends Load
       last = current;       
     }
     
+<<<<<<< HEAD
   //representing data
   stroke(255);
+=======
+    stroke(255);
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
   if(data == 0)
   {
     age = "Children";
@@ -103,9 +119,13 @@ class Menu2 extends Load
     fill(0, 204, 240);
     text("Back", 40, 20);
   }
+<<<<<<< HEAD
 
 
 //on click function
+=======
+  
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
 int piClicked()
 {
     int j = 0;

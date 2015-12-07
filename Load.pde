@@ -21,7 +21,10 @@ class Load
   
   Load()
   {
+<<<<<<< HEAD
     //gets data from the file
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
     lines = loadStrings("Survey.txt");
     //To load lines in a file 
     for(String s:lines)

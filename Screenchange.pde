@@ -1,8 +1,12 @@
 class Screenchange
 {
+<<<<<<< HEAD
   //growth variable
   float j;
   //repetition stop variable
+=======
+  float j;
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
   int k;
   int dir;
   
@@ -15,7 +19,11 @@ class Screenchange
   
   void animation()
   {
+<<<<<<< HEAD
     //menu1-menu2 change
+=======
+  
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
     if(Menu)
     {
       if(k==0)
@@ -33,11 +41,18 @@ class Screenchange
           k=1;
           dir++;
         }
+<<<<<<< HEAD
       }//end repitition check if
     }
     else
     {
       //menu2-menu3 change
+=======
+      }
+    }
+    else
+    {
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
       if(Specs)
       {
         if(k==1)
@@ -55,7 +70,11 @@ class Screenchange
             k=0;
             dir++;
           }
+<<<<<<< HEAD
         }//end repitition check if
+=======
+        }
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
       }
       else
       {
@@ -74,15 +93,25 @@ class Screenchange
             k=1;
             dir++;
           }
+<<<<<<< HEAD
         }//end repitition check if
       }//end menu2-menu3 change else
     }//end menu1-menu2 change else
   }//end fuction
+=======
+        }
+      }
+    }
+  }
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
   
   
   void render()
   {
+<<<<<<< HEAD
     //directional animation changes
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
     if(dir<4)
     {
       if(dir==0)

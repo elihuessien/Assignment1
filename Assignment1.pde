@@ -3,7 +3,11 @@ void setup()
   size(500, 500);
   textAlign(CENTER, CENTER);
   
+<<<<<<< HEAD
   //seting game objects
+=======
+  
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
   menu1 = new Menu1();
   menu2 = new Menu2();
   menu3 = new Menu3();
@@ -41,7 +45,10 @@ void draw()
   {
     if(Menu)
     {
+<<<<<<< HEAD
       //displaying first menu
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
       background(0);
       change.animation();
       fill(0, 204, 255);
@@ -52,7 +59,10 @@ void draw()
     {
       if(Specs)
       {
+<<<<<<< HEAD
         //displaying second menu
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
         background(0, 204, 255);
         change.animation();
         fill(0);
@@ -61,12 +71,19 @@ void draw()
       }
       else
       {
+<<<<<<< HEAD
         //displaying third menu
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
         background(0);
         change.animation();
         fill(0, 204, 255);
         menu3.border();
+<<<<<<< HEAD
         menu3.bargraph(specOfset);
+=======
+        menu3.graph(specOfset);
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
         menu3.backbotton();
       }
     }
@@ -75,10 +92,15 @@ void draw()
 
 void mousePressed()
 {
+<<<<<<< HEAD
   //checking menu change animation finnished
   if(change.j == 0)
   {
     //changing from start page
+=======
+  if(change.j == 0)
+  {
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
     if(Opening)
     {
       Opening =! Opening;
@@ -87,11 +109,15 @@ void mousePressed()
     {
       if(Menu)
       {
+<<<<<<< HEAD
         //get the box clicked on
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
         getbox();
       }
       else
       {
+<<<<<<< HEAD
         //checking between menu2 and menu3
         if(Specs)
         {
@@ -99,11 +125,20 @@ void mousePressed()
           if(mouseX>20 && mouseX<60 && mouseY>10 && mouseY<30)
           {
             //for menu 1 and 2 toggle
+=======
+        if(Specs)
+        {
+          if(mouseX>20 && mouseX<60 && mouseY>10 && mouseY<30)
+          {
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
             Menu =! Menu;
           }
           else
           {
+<<<<<<< HEAD
             //menu 2 and 3 toggle
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
             Specs =! Specs;
             specOfset = menu2.piClicked();
             println(specOfset);
@@ -111,11 +146,15 @@ void mousePressed()
         }
         else
         {
+<<<<<<< HEAD
           //menu3 back button
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
           if(mouseX>20 && mouseX<60 && mouseY>10 && mouseY<30)
           {
             Specs =! Specs;
           }
+<<<<<<< HEAD
         }//end inner else 2
       }//end inner else 1
     }//end outer else
@@ -124,6 +163,14 @@ void mousePressed()
 
 
 //Opening menu instructions
+=======
+        }
+      }
+    }
+  }
+}
+
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
 void opening()
 {
   fill(0);
@@ -133,12 +180,18 @@ void opening()
   
 }
 
+<<<<<<< HEAD
 
 //find menu1 box clicked
 void getbox()
 {
   int boxnum;
   //get number of box clicked
+=======
+void getbox()
+{
+  int boxnum;
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
   boxnum = findbox();
   
   if( boxnum < 12)
@@ -150,8 +203,11 @@ void getbox()
     {
       box_no = boxnum;
       Menu = !Menu;
+<<<<<<< HEAD
       
       //check right box recieved
+=======
+>>>>>>> d1038489a909aef849db2278e1da6ddb24f10c3e
       println(box_no);
     }
   }
