@@ -4,6 +4,8 @@ void setup()
   
   player = new Ball();
 }
+
+boolean start = false;
 int j = 0;
 int gap;
 int gapcounter = 0;
@@ -18,12 +20,14 @@ void draw()
 {
   background(0);
   stroke(255);
+  //makes platforms
   platVariables();
+  //manages platforms
   platOrganiser();
   
   stroke(0);
-  landCheck();
   player.update();
+  landCheck();
   player.render();
 }
 
@@ -31,7 +35,7 @@ void keyPressed()
 {
   if( key == ' ')
   {
-    if(player.j == 0)
+    if(player.j == 0 && start)
     {
       player.j = 1;
     }
@@ -43,18 +47,27 @@ void landCheck()
 {
   int num = 0;
   
+  if(start && j==0)
+  {
+    player.j = 2;
+    player.gravity = 10;
+  }
+  
   for(int i=0; i<size; i++)
   {
     if(player.pos.x > platforms.get(i).pos.x && player.pos.x <= (platforms.get(i).pos.x + platforms.get(i).w))
     {
       if(player.pos.y >= (platforms.get(num).pos.y - player.crw/2) && player.pos.y < (platforms.get(i).pos.y)+ platforms.get(i).h)
       {
+        start = true; 
         player.j = 0;
         player.gravity = 0;
         player.pos.y = (platforms.get(num).pos.y - player.crw/2);
       }
     }
   }
+  
+  println(player.j);
 }
 
 void platOrganiser()

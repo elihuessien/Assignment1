@@ -2,8 +2,8 @@ class Ball extends GO
 {
   int crw = 30;
   
-  int gravity = 0;
-  int jump = 20;
+  float gravity = 0;
+  int jump = 30;
   int j = 0;
   float theta = 0;
   
@@ -25,12 +25,19 @@ class Ball extends GO
       //terminal velocity
       if(gravity<30)
       {
-        gravity++;
+        gravity += .5;
       }
     }
     else
     {
-      forward.y = 0;
+      if(j == 0)
+      {
+        forward.y = 0;
+      }
+      else
+      {
+        forward.y = +gravity;
+      }
     }
     
     theta += 0.2;
