@@ -1,14 +1,17 @@
 class Ball extends GO
 {
   int crw = 30;
-  
-  float gravity = 0;
-  int jump = 30;
+  String name;
+  int score;
+  int gravity = 0;
+  int thrust = 12;
   int j = 0;
   float theta = 0;
   
   Ball()
   {
+    name = "No name";
+    score = 0;
     pos.x = 200;
     pos.y = height/2;
     forward.x = 0;
@@ -20,12 +23,12 @@ class Ball extends GO
     if(j == 1)
     {
       //animating jump with respect to gravity :P
-      forward.y = -(jump - (gravity));
+      forward.y = -(thrust - (gravity));
       
       //terminal velocity
-      if(gravity<30)
+      if(gravity<40)
       {
-        gravity += .5;
+        gravity += 1;
       }
     }
     else
