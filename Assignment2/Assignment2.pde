@@ -97,7 +97,7 @@ void keyPressed()
     }
     else
     {
-      if( ((key>='A')&&(key<='Z')) || ((key>='a')&&(key<='z')) || ((key>='0')&&(key<='9')) )
+      if( ((key>='A')&&(key<='Z')) || ((key>='a')&&(key<='z')) || ((key>='0')&&(key<='9')) && name.length() < 10 )
       {
          name += key;
       }
@@ -307,10 +307,12 @@ void mainMenu()
     text("Jump!", width/2, height/2-100);
     
     textAlign(LEFT, CENTER);
+    int j = 0;
     for(int i = level; i<scores.size(); i+=3 )
     {
-      text(scores.get(i).place + ": " + scores.get(i).name , width/2-70, height/2+(-20+(i*20)));
-      text("score: " + scores.get(i).score , width/2+40, height/2+(-20+i*20));
+      text(scores.get(i).place + ": " + scores.get(i).name , width/2-70, height/2+(-20+(j*20)));
+      text("score: " + scores.get(i).score , width/2+40, height/2+(-20+j*20));
+      j++;
     }
     textAlign(CENTER, CENTER);
   }
