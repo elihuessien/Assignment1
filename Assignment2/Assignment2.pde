@@ -2,15 +2,14 @@ void setup()
 {
   size(800, 500);
   textAlign(CENTER, CENTER);
-  
   loadScores();
 }
 int menu = 0;
+int level = 0;
 String name = "";
 boolean init = true;
 boolean start = false;
 boolean named = false;
-int j = 0;
 int gap;
 int gapcounter = 0;
 int gapManager = 1;
@@ -20,6 +19,7 @@ Ball player;
 ArrayList<Platform> platforms = new ArrayList<Platform>();
 int size = 0;
 
+int scoreNum = 0;
 ArrayList<Score> scores = new ArrayList<Score>();
 
 void loadScores()
@@ -31,6 +31,12 @@ void loadScores()
     String[] elements = line.split(" "); 
     Score score = new Score(elements[0], elements[1], parseInt(elements[2]));
     scores.add(score);
+    scoreNum++;
+  }
+  
+  for(int i = 0; i<scores.size(); i++ )
+  {
+    println(scores.get(i).place + " " + scores.get(i).name + " " +scores.get(i).score);
   }
 }
 
@@ -50,7 +56,7 @@ void draw()
     create();
   }
   
-  if(menu == 1)
+  if(menu == 2)
   {
     if(named)
     {
@@ -75,7 +81,7 @@ void draw()
 void keyPressed()
 { 
   //game option 1
-  if(menu == 1)
+  if(menu == 2)
   {
     if(named)
     {
@@ -111,14 +117,48 @@ void keyPressed()
 
 void mousePressed()
 {
-  if(menu == 2)
+  if(menu == 0)
+  {
+    if(mouseX > width/2-25 && mouseX < width/2+25)
+    {
+      if(mouseY > height/2-30 && mouseY < height/2-10)
+      {
+        init = true;
+        level = 1;
+        menu = 1;
+      }
+    }//end easy button if
+    
+    
+    if(mouseX > width/2-25 && mouseX < width/2+25)
+    {
+      if(mouseY > height/2-10 && mouseY < height/2+10)
+      {
+        init = true;
+        level = 2;
+        menu = 1;
+      }
+    }//end medium button if
+    
+    
+    if(mouseX > width/2-25 && mouseX < width/2+25)
+    {
+      if(mouseY > height/2+10 && mouseY < height/2+30)
+      {
+        init = true;
+        level = 3;
+        menu = 1;
+      }
+    }//end Hard button if
+  }
+  if(menu > 2)
   {
     //menu botton
     if(mouseX>100 && mouseX<150)
     {
       if(mouseY>height-100 && mouseY<height-(100-20))
       {
-        menu = 0;
+        menu = 1;
       }
     }
     
@@ -128,29 +168,7 @@ void mousePressed()
       if(mouseY>height-100 && mouseY<height-(100-20))
       {
         init = true;
-        menu = 1;
-      }
-    }
-  }
-  
-  if(menu == 4)
-  {
-    //menu botton
-    if(mouseX>100 && mouseX<150)
-    {
-      if(mouseY>height-100 && mouseY<height-(100-20))
-      {
-        menu = 0;
-      }
-    }
-    
-    //play botton
-    if(mouseX>width-110 && mouseX<width-(40))
-    {
-      if(mouseY>height-100 && mouseY<height-(100-20))
-      {
-        init = true;
-        menu = 1;
+        menu = 2;
       }
     }
   }
@@ -161,24 +179,68 @@ void menuOptions()
   if( key == '1')
   {
     init = true;
-    menu = 1;
+    menu = 2;
   }
   
   if( key == '2')
   {
-    menu = 2;
+    menu = 3;
   }
   
   if( key == '3')
   {
-    menu = 3;
+    menu = 4;
   }
 }
 
 void mainMenu()
 {
-  //opening
+  //Level Select
   if(menu == 0)
+  {
+    fill(255);
+    stroke(255);
+    text("Jump!", width/2, height/2-100);
+    fill(0);
+    rect(width/2-25, height/2-30, 50, 20);
+    fill(255);
+    if(mouseX > width/2-25 && mouseX < width/2+25)
+    {
+      if(mouseY > height/2-30 && mouseY < height/2-10)
+      {
+        fill(0, 255, 255);
+      }
+    }
+    text("Easy", width/2, height/2-20);
+    
+    
+    fill(0);
+    rect(width/2-25, height/2-10, 50, 20);
+    fill(255);
+    if(mouseX > width/2-25 && mouseX < width/2+25)
+    {
+      if(mouseY > height/2-10 && mouseY < height/2+10)
+      {
+        fill(0, 255, 255);
+      }
+    }
+    text("Medium", width/2, height/2);
+    
+    
+    fill(0);
+    rect(width/2-25, height/2+10, 50, 20);
+    fill(255);
+    if(mouseX > width/2-25 && mouseX < width/2+25)
+    {
+      if(mouseY > height/2+10 && mouseY < height/2+30)
+      {
+        fill(0, 255, 255);
+      }
+    }
+    text("Hard", width/2, height/2+20);
+  }
+  //opening
+  if(menu == 1)
   {
     fill(255);
     background(0);
@@ -188,7 +250,7 @@ void mainMenu()
     text("3: Highcores", width/2, height/2+20);
   }
   
-  if(menu == 1)
+  if(menu == 2)
   {
     if(named)
     {
@@ -203,14 +265,46 @@ void mainMenu()
   }
   
   //instructions
-  if(menu == 2)
+  if(menu == 3)
   {
     background(0);
     fill(255);
     text("Jump!", width/2, height/2-100);
     text("Press spacebar to jump", width/2, height/2 - 20);
     text("Don't fall!", width/2, height/2);
+  }
+  
+  
+  //scores menu
+  if( menu == 4)
+  {
+    fill(255);
+    text("Jump!", width/2, height/2-100);
     
+    textAlign(LEFT, CENTER);
+    for(int i = 0; i<scores.size(); i++ )
+    {
+      text(scores.get(i).place + ": " + scores.get(i).name , width/2-70, height/2+(-20+(i*20)));
+      text("score: " + scores.get(i).score , width/2+40, height/2+(-20+i*20));
+    }
+    textAlign(CENTER, CENTER);
+  }
+  
+  //game over menu
+  if(menu == 5)
+  {
+    background(0);
+    fill(255);
+    text("Game over :(", width/2, height/2-50);
+    text("Your score is: " + player.score, width/2, height/2);
+    
+    fill(255);
+    rect(100, height-100, 50, 20);
+    fill(0);
+  }
+  
+  if(menu > 2)
+  {
     fill(255);
     rect(100, height-100, 50, 20);
     fill(0);
@@ -234,58 +328,6 @@ void mainMenu()
       }
     }
     text("Play", width-75, height-90);
-  }
-  
-  
-  //scores menu
-  if( menu == 3)
-  {
-    fill(255);
-    text("Jump!", width/2, height/2-100);
-    
-    textAlign(LEFT);
-    text("1st: " + scores.get(0).name , width/2-50, height/2-20);
-    text("score: " + scores.get(0).score , width/2+50, height/2-20);
-    
-    text("2nd: " + scores.get(1).name , width/2-50, height/2);
-    text("score: " + scores.get(1).score , width/2+50, height/2);
-    
-    text("3rd: " + scores.get(2).name , width/2-50, height/2+20);
-    text("score: " + scores.get(2).score , width/2+50, height/2+20);
-    textAlign(CENTER);
-  }
-  
-  //game over menu
-  if(menu == 4)
-  {
-    background(0);
-    fill(255);
-    text("Game over :(", width/2, height/2-50);
-    text("Your score is: " + player.score, width/2, height/2);
-    
-    fill(255);
-    rect(100, height-100, 50, 20);
-    fill(0);
-    if(mouseX>100 && mouseX<150)
-    {
-      if(mouseY>height-100 && mouseY<height-(100-20))
-      {
-        fill(0, 255, 255);
-      }
-    }
-    text("Menu", 125, height-90);
-    
-    fill(255);
-    rect(width-110, height-100, 70, 20);
-    fill(0);
-    if(mouseX>width-110 && mouseX<width-(40))
-    {
-      if(mouseY>height-100 && mouseY<height-(100-20))
-      {
-        fill(0, 255, 255);
-      }
-    }
-    text("Play again", width-75, height-90);
   }
 }
 
@@ -413,13 +455,39 @@ void landCheck()
   if(player.pos.y > height)
   {
     scorecheck();
-    menu = 4;
+    menu = 5;
   }
 }
 
 void scorecheck()
 {
-  println("hi");
+  //make a new score element
+  Score score = new Score("11th", player.name, player.score);
+  scores.add(score);
+  
+  int tempScore = scores.get(0).score;
+  String tempName = scores.get(0).name;
+  
+  //sorting algorithm
+  for(int j = 0; j < scoreNum; j++)
+  {
+    for(int i = 0; i < scoreNum; i++)
+    {
+      if(scores.get(i).score < scores.get(i+1).score)
+      {
+        tempScore = scores.get(i).score;
+        tempName = scores.get(i).name;
+        
+        scores.get(i).score = scores.get(i+1).score;
+        scores.get(i).name = scores.get(i+1).name;
+        
+        scores.get(i+1).score = tempScore;
+        scores.get(i+1).name = tempName;
+      }
+    }
+  }
+  
+  scores.remove(scoreNum);
 }
 
 
@@ -435,7 +503,6 @@ void cleanup()
   start = false;
   named = false;
   name = "";
-  j = 0;
   gapcounter = 0;
   gapManager = 1;
   platon = 0;
